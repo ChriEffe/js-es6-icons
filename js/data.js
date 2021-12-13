@@ -125,6 +125,29 @@ const categories = [
 const container = document.querySelector('.container');
 createCategories(categories, container);
 
+const select = document.getElementById('categories');
+
+select.addEventListener('click', function () {
+	const selectValue = select.value;
+	container.innerHTML = '';
+
+	if (selectValue == 'all') {
+		createCategories(categories, container);
+	} else if (selectValue == 'animal') {
+		container.innerHTML += `
+		<div class="icon">
+			<i class="${categories.family} ${categories.prefix}${categories.name} fs-2 ${categories.orange}"></i>
+			<p>${categories.name}</p>
+		</div>`;
+	} else if (selectValue == 'vegetables') {
+		container.innerHTML += `
+		<div class="icon">
+			<i class="${categories.family} ${categories.prefix}${categories.name} fs-2 ${categories.green}"></i>
+			<p>${categories.name}</p>
+		</div>`;
+	}
+})
+
 
 function createCategories(array, container) {
 	container.innerHTML = '';
@@ -134,9 +157,10 @@ function createCategories(array, container) {
 		
 		const div = `
 		<div class="icon">
-			<i class="${element.family} ${element.prefix}${element.name} fs-2 animal"></i>
+			<i class="${element.family} ${element.prefix}${element.name} fs-2 ${element.color}"></i>
 			<p>${element.name}</p>
 			</div>`;
+			
 
 			container.innerHTML += div;
 	}
