@@ -6,7 +6,7 @@ Milestone 3
 Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.*/
 
 
-[
+const categories = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -120,3 +120,25 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 		color: 'blue'
 	}
 ];
+
+
+const container = document.querySelector('.container');
+createCategories(categories, container);
+
+
+function createCategories(array, container) {
+	container.innerHTML = '';
+
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i];
+		
+		const div = `
+		<div class="icon">
+			<i class="${element.family} ${element.prefix}${element.name} fs-2 animal"></i>
+			<p>${element.name}</p>
+			</div>`;
+
+			container.innerHTML += div;
+	}
+	
+}
