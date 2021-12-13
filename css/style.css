@@ -1,0 +1,65 @@
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fs-2  {
+    font-size: 2em;
+}
+
+h1  {
+    color: #29b1dd;
+    margin: 0.2em;
+}
+
+.header-bottom  {
+    height: 35px;
+    background-color: #29b1dd;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+main  {
+    background-color: #dddddd;
+}
+
+.container  {
+    background-color: #dddddd;
+    height: 100vh;
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.icon  {
+height: 100px;
+width: 250px;
+background-color: white;
+border: 1px solid black;
+border-radius: 15px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+p {
+    color: black;
+}
+
+.animal  {
+    color: #0000ff;
+}
+
+.vegetables  {
+    color: #ffa500;
+}
+
+.user  {
+    color: #800080;
+}
