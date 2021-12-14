@@ -125,29 +125,74 @@ const categories = [
 const container = document.querySelector('.container');
 createCategories(categories, container);
 
+let animalIcon = [];
+let userIcon = [];
+let vegIcon = [];
+
+categories.forEach(element => {
+	switch (element.type) {
+		case 'animal':
+			animalIcon.push(element);
+			break;
+		case 'vegetable':
+			vegIcon.push(element);
+			break;
+		case 'user':
+			userIcon.push(element);
+			break;
+	}
+});
+
 const select = document.getElementById('categories');
 
 select.addEventListener('click', function () {
-	const selectValue = select.value;
-	container.innerHTML = '';
-
-	if (selectValue == 'all') {
-		createCategories(categories, container);
-	} else if (selectValue == 'animal') {
-		container.innerHTML += `
-		<div class="icon">
-			<i class="${categories.family} ${categories.prefix}${categories.name} fs-2 ${categories.orange}"></i>
-			<p>${categories.name}</p>
-		</div>`;
-	} else if (selectValue == 'vegetables') {
-		container.innerHTML += `
-		<div class="icon">
-			<i class="${categories.family} ${categories.prefix}${categories.name} fs-2 ${categories.green}"></i>
-			<p>${categories.name}</p>
-		</div>`;
+	switch (select.value) {
+		case 'all':
+			container.innerHTML = '';
+			categories.forEach((element) => {
+				let icon = `
+		    	<div class="icon">
+					<i class="${element.family} ${element.prefix}${element.name} fs-2 ${element.color}"></i>
+					<p>${element.name}</p>
+				</div>`;
+				container.innerHTML += icon;
+			})
+			break;
+		case 'animal':
+			container.innerHTML = '';
+			animalIcon.forEach((element) => {
+				let icon = `
+		    	<div class="icon">
+					<i class="${element.family} ${element.prefix}${element.name} fs-2 ${element.color}"></i>
+					<p>${element.name}</p>
+				</div>`;
+				container.innerHTML += icon;
+			})
+			break;
+		case 'vegetable':
+			container.innerHTML = '';
+			vegIcon.forEach((element) => {
+				let icon = `
+		    	<div class="icon">
+					<i class="${element.family} ${element.prefix}${element.name} fs-2 ${element.color}"></i>
+					<p>${element.name}</p>
+				</div>`;
+				container.innerHTML += icon;
+			})
+			break;
+		case 'user':
+			container.innerHTML = '';
+			userIcon.forEach((element) => {
+				let icon = `
+		    	<div class="icon">
+					<i class="${element.family} ${element.prefix}${element.name} fs-2 ${element.color}"></i>
+					<p>${element.name}</p>
+				</div>`;
+				container.innerHTML += icon;
+			})
+			break;
 	}
 })
-
 
 function createCategories(array, container) {
 	container.innerHTML = '';
